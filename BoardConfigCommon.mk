@@ -98,6 +98,7 @@ BOARD_SEPOLICY_UNION += \
         mediaserver.te \
         rild.te \
         sensors_config.te \
+        setup_fs.te \
         surfaceflinger.te \
         system_app.te \
         system_server.te \
