@@ -91,7 +91,7 @@ BOARD_SEPOLICY_UNION += \
         device.te \
         domain.te \
         drmserver.te \
-        init_shell.te \
+        touch_fw_update.te \
         file.te \
         gpsd.te \
         keystore.te \
