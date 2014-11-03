@@ -90,7 +90,7 @@ BOARD_SEPOLICY_UNION += \
         device.te \
         domain.te \
         drmserver.te \
-        init_shell.te \
+        touch_fw_update.te \
         file.te \
         gpsd.te \
         keystore.te \
@@ -103,4 +103,5 @@ BOARD_SEPOLICY_UNION += \
         system_app.te \
         system_server.te \
         ueventd.te \
-        vold.te
+        vold.te \
+        radio.te
