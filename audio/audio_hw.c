@@ -723,7 +723,7 @@ static ssize_t out_write(struct audio_stream_out *stream, const void* buffer,
                     sleep_time_us = MAX_WRITE_SLEEP_US -
                                         (total_sleep_time_us - sleep_time_us);
                 }
-                usleep(sleep_time_us);
+                //usleep(sleep_time_us);
             }
 
         } while ((kernel_frames > out->cur_write_threshold) &&
