@@ -20,6 +20,8 @@
 # definition file).
 #
 
+GROUPER_DIR := device/asus/grouper
+
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
@@ -33,11 +35,11 @@ USE_PROPRIETARY_AUDIO_EXTENSIONS := false
 
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.grouper
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/asus/grouper
+TARGET_RELEASETOOLS_EXTENSIONS := $(GROUPER_DIR)
 
 -include vendor/asus/grouper/BoardConfigVendor.mk
-include device/asus/grouper/BoardConfigCommon.mk
+include $(GROUPER_DIR)/BoardConfigCommon.mk
 
-TARGET_RECOVERY_FSTAB = device/asus/grouper/fstab.grouper
+TARGET_RECOVERY_FSTAB = $(GROUPER_DIR)/rootdir/fstab.grouper
 
 MALLOC_IMPL := dlmalloc

@@ -23,8 +23,10 @@
 # inherit from the proprietary version
 # needed for BP-flashing updater extensions
 
+GROUPER_DIR := device/asus/grouper
+
 # Default value, if not overridden else where.
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/asus/grouper/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= $(GROUPER_DIR)/bluetooth
 
 TARGET_BOARD_PLATFORM := tegra3
 TARGET_TEGRA_VERSION := t30
@@ -66,7 +68,7 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/asus/grouper/egl.cfg
+BOARD_EGL_CFG := $(GROUPER_DIR)//config/egl.cfg
 
 ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
 # needed for source compilation of nvidia libraries
@@ -82,28 +84,4 @@ BOARD_USES_GROUPER_MODULES := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 BOARD_SEPOLICY_DIRS += \
-        device/asus/grouper/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-        file_contexts \
-        genfs_contexts \
-        bluetooth.te \
-        device.te \
-        domain.te \
-        drmserver.te \
-        touch_fw_update.te \
-        file.te \
-        gpsd.te \
-        keystore.te \
-        lmkd.te \
-        mediaserver.te \
-        recovery.te \
-        rild.te \
-        sensors_config.te \
-        setup_fs.te \
-        surfaceflinger.te \
-        system_app.te \
-        system_server.te \
-        ueventd.te \
-        vold.te \
-        radio.te
+        $(GROUPER_DIR)/sepolicy

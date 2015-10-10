@@ -18,9 +18,10 @@
 # device-specific aspects (drivers) with a device-agnostic
 # product configuration (apps).
 #
+GROUPER_DIR := device/asus/grouper
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, device/asus/grouper/device.mk)
+$(call inherit-product, $(GROUPER_DIR)/device.mk)
 # This is where we'd set a backup provider if we had one
 #$(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
@@ -29,4 +30,4 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 PRODUCT_NAME := full_grouper
 PRODUCT_DEVICE := grouper
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP on Grouper
+PRODUCT_MODEL := Grouper

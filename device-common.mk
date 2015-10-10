@@ -14,8 +14,10 @@
 # limitations under the License.
 #
 
+GROUPER_DIR := device/asus/grouper
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-  LOCAL_KERNEL := device/asus/grouper/kernel
+  LOCAL_KERNEL := $(GROUPER_DIR)/kernel
 else
   LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -44,10 +46,10 @@ include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
-    device/asus/grouper/ueventd.grouper.rc:root/ueventd.grouper.rc \
-    device/asus/grouper/init.grouper.usb.rc:root/init.grouper.usb.rc \
-    device/asus/grouper/gps.conf:system/etc/gps.conf \
-    device/asus/grouper/touch_fw_update.sh:system/bin/touch_fw_update.sh
+    $(GROUPER_DIR)/rootdir/ueventd.grouper.rc:root/ueventd.grouper.rc \
+    $(GROUPER_DIR)/rootdir/init.grouper.usb.rc:root/init.grouper.usb.rc \
+    $(GROUPER_DIR)/configs/gps.conf:system/etc/gps.conf \
+    $(GROUPER_DIR)/touch/touch_fw_update.sh:system/bin/touch_fw_update.sh
 
 ifneq ($(TARGET_PREBUILT_WIFI_MODULE),)
 PRODUCT_COPY_FILES += \
@@ -69,10 +71,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml
 
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc \
-    device/asus/grouper/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
-    device/asus/grouper/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
-    device/asus/grouper/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
+    $(GROUPER_DIR)/touch/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc \
+    $(GROUPER_DIR)/touch/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
+    $(GROUPER_DIR)/touch/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
+    $(GROUPER_DIR)/touch/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
 PRODUCT_PACKAGES := \
     libwpa_client \
@@ -112,22 +114,22 @@ PRODUCT_CHARACTERISTICS := tablet,nosdcard
 
 # media config xml file
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/media_profiles.xml:system/etc/media_profiles.xml
+    $(GROUPER_DIR)/config/media_profiles.xml:system/etc/media_profiles.xml
 
 # media codec config xml file
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    device/asus/grouper/media_codecs.xml:system/etc/media_codecs.xml
+    $(GROUPER_DIR)/config/media_codecs.xml:system/etc/media_codecs.xml
 
 # audio mixer paths
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/mixer_paths.xml:system/etc/mixer_paths.xml
+    $(GROUPER_DIR)/config/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # audio policy configuration
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/audio_policy.conf:system/etc/audio_policy.conf
+    $(GROUPER_DIR)/config/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
